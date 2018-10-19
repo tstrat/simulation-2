@@ -1,0 +1,13 @@
+.container {
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  background: #E5F4EC;
+  padding: 1%;
+}
+
+.App {
+  background: #AFD4C0;
+  min-height: 100vh;
+  height: fit-content;
+}
