@@ -1,7 +1,8 @@
 module.exports = {
     getHouses : (req, res, next) => {
         const db = req.app.get('db');
-        db.get_houses()
+        const {id} = req.session.user;
+        db.get_houses({id})
         .then(houseList => {
             res.status(200).json(houseList);
         })
@@ -10,8 +11,9 @@ module.exports = {
     // add house 
     addHouse: (req, res) => {
         const db = req.app.get('db');
-        
-        db.add_house(req.body)
+        const id = parseInt(req.session.user.id);
+        console.log({... req.body, id});
+        db.add_house({... req.body, id})
         .then(success => {
             res.status(200).send("Successfully added: " + JSON.stringify(success));
         })

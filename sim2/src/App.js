@@ -4,10 +4,13 @@ import Header from './components/Header/Header';
 import './App.css';
 
 class App extends Component {
+  update =() => {
+    console.log("hits here");
+  }
   render() {
     return (
       <div className="App">
-        <Header/>
+        <Header update={this.update}/>
         {routes}
       </div>
     );

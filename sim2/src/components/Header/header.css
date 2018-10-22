@@ -1,8 +1,15 @@
 header {
+   
     width:100%;
     background-color: #519872;
+    display:flex;
+    justify-content: space-around;
     height: fit-content;
-    
+}
+
+header a {
+    color:white;
+    text-decoration: none;
 }
 
 header > * {
@@ -17,4 +24,17 @@ header > * {
 
 header > * > * {
     margin: 1%;
+}
+
+.login {
+    width:fit-content;
+}
+.login > div {
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login > div > * {
+    margin:5px;
 }

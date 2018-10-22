@@ -23,7 +23,9 @@ class Dashboard extends Component {
     }
 
     componentDidUpdate(newProps) {
-        if (this.props.name !== newProps.name) {
+        console.log("update hit", this.props);
+        console.log('new', newProps);
+        if (this.props.dashboard !== newProps.dashboard) {
             this.fetchHouseData();
         }
     }
@@ -75,6 +77,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { name : state.name }
+    return { dashboard : state.dashboard }
 }
 export default connect(mapStateToProps)(Dashboard);

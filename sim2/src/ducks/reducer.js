@@ -6,8 +6,8 @@ const INITIAL_STATE = {
     zip : 0,
     img : '',
     mortgage: 0,
-    rent: 0
-
+    rent: 0,
+    dashboard : true
 }
 
 const CLEAR_ALL = "CLEAR_ALL";
@@ -19,9 +19,9 @@ const UPDATE_ZIP = "UPDATE_ZIP";
 const UPDATE_IMG = "UPDATE_IMG";
 const UPDATE_MORTGAGE = "UPDATE_MORTGAGE";
 const UPDATE_RENT = "UPDATE_RENT";
+const TOGGLE_DASHBOARD = "TOGGLE_DASHBOARD";
 
 export default function reducer(state = INITIAL_STATE, action){
-    console.log('store', state);
     switch ( action.type ) {
         
         case UPDATE_NAME:
@@ -48,6 +48,8 @@ export default function reducer(state = INITIAL_STATE, action){
         case UPDATE_RENT:
             return Object.assign({},state, { rent: action.payload });
         
+        case TOGGLE_DASHBOARD:
+            return {...state, dashboard : !state.dashboard };
         case CLEAR_ALL:
             return INITIAL_STATE;
         default:
@@ -114,5 +116,11 @@ export function updateRent(price) {
     return {
         type: UPDATE_RENT,
         payload: price
+    }
+}
+
+export function toggleDashboard() {
+    return {
+        type: TOGGLE_DASHBOARD
     }
 }

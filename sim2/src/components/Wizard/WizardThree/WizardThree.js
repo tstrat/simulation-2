@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { updateMortgage, updateRent, clearAll } from '../../../ducks/reducer';
+import { updateMortgage, updateRent, clearAll, toggleDashboard } from '../../../ducks/reducer';
 import axios from 'axios';
 
 class WizardThree extends Component {
@@ -27,6 +27,7 @@ class WizardThree extends Component {
         axios.post('/api/houses', newProperty)
         .then(res => {
             this.props.clearAll();
+            this.props.toggleDashboard();
         })
         .catch(error => console.log('Error in submitting new property: ', error));
     }
@@ -70,4 +71,4 @@ const mapStateToProps = (storeState) => {
 }
 
 
-export default connect(mapStateToProps, {updateMortgage, updateRent, clearAll})(WizardThree);
+export default connect(mapStateToProps, {updateMortgage, updateRent, clearAll, toggleDashboard})(WizardThree);
